@@ -1,4 +1,4 @@
-# ✈️ Tunisair Flight Delay Analysis & Prediction
+# ✈️ Tunisair Flight Delay Analysis & Prediction (+ Tableau)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)  
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)  
@@ -9,7 +9,7 @@
 
 ---
 
-## Project Snapshot — a short story
+## Project Snapshot
 
 I explored Tunisair's flight logs to understand why flights get delayed and whether we could predict these delays. This case study blends exploratory storytelling with applied machine learning: we clean the data, craft features that capture temporal and route patterns, test models (Logistic Regression and Random Forest), and deploy predictions for visualization (Tableau) and ad-hoc inference (Streamlit).
 
@@ -180,21 +180,6 @@ streamlit run app/tunisair_app.py
 
 ---
 
-## Requirements
-
-```
-pandas
-numpy
-scikit-learn
-xgboost
-joblib
-streamlit
-matplotlib
-seaborn
-plotly
-```
-
----
 
 ## Author
 
