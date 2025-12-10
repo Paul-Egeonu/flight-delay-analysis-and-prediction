@@ -17,7 +17,7 @@ Each code snippet below has been chosen to illustrate a key step in the analysis
 
 ---
 
-## Repository (light package)
+## Repository 
 
 ```
 tunisair-flight-delay-analysis/
