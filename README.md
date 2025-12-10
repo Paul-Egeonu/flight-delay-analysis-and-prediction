@@ -1,4 +1,4 @@
-# ✈️ Tunisair Flight Delay Analysis & Prediction (+ Tableau)
+# ✈️ Tunisair Flight Delay Analysis & Prediction
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)  
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)  
@@ -9,7 +9,7 @@
 
 ---
 
-## Project Snapshot
+## Project Snapshot — a short story
 
 I explored Tunisair's flight logs to understand why flights get delayed and whether we could predict these delays. This case study blends exploratory storytelling with applied machine learning: we clean the data, craft features that capture temporal and route patterns, test models (Logistic Regression and Random Forest), and deploy predictions for visualization (Tableau) and ad-hoc inference (Streamlit).
 
@@ -25,17 +25,17 @@ tunisair-flight-delay-analysis/
 │── requirements.txt
 │── images/Flight_ERD.png
 │── data/
-│   ├── Tunisair_flights_dataset.csv         # placeholder / add real file
-│   ├── airports2.csv                        # placeholder / add real file
-│   └── flight_delay_with_predictions.csv    # placeholder / add real file
+│   ├── Tunisair_flights_dataset.csv        
+│   ├── airports2.csv                        
+│   └── flight_delay_with_predictions.csv    
 │── models/
-│   ├── tunisair_best_model.joblib           # placeholder / add real model
-│   └── tunisair_delay_regressor.joblib      # placeholder / add real model
+│   ├── tunisair_best_model.joblib           
+│   └── tunisair_delay_regressor.joblib     
 │── images/
-│   ├── TunisairDelayPredictor.gif           # placeholder
-│   └── TableauPublic-flight_delay.gif       # placeholder
+│   ├── TunisairDelayPredictor.gif           
+│   └── TableauPublic-flight_delay.gif       
 │── tableau/
-│   └── flight_delay_visual.twb              # placeholder
+│   └── flight_delay_visual.twb              
 ```
 
 > **Note:** Replace the placeholder files in `data/`, `models/`, `images/`, and `tableau/` with your actual assets before publishing the repo.
@@ -180,8 +180,24 @@ streamlit run app/tunisair_app.py
 
 ---
 
+## Requirements
+
+```
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+streamlit
+matplotlib
+seaborn
+plotly
+```
+
+---
 
 ## Author
 
-**Your Name** — Data Analyst & Data Scientist  
-[LinkedIn](https://www.linkedin.com/) | [GitHub](https://github.com/yourusername)
+**Paul Egeonu**  
+_Data Analyst | Data Scientist_  
+[LinkedIn](https://www.linkedin.com/in/paul-egeonu) | [GitHub](https://github.com/Paul-Egeonu)
