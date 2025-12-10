@@ -50,49 +50,84 @@ tunisair-flight-delay-analysis/
 
 
 ---
+## 🛫 Data Used
+### 1. Tunisair Flight Dataset (Tunisair_flights_dataset.csv)
+Includes:
+- scheduled_dep, actual_dep, scheduled_arr, actual_arr
+- origin, destination, flight_id
+- dep_delay (target variable, minutes)
+- Aircraft & route information
 
-## The analytical journey (story + code)
+### 2. Airports Metadata (airports2.csv)
+Used to enhance route context:
+- Airport name, IATA code
+- Country, region, location
 
-### 1) Loading the data — first glance
-We begin by loading the raw flight logs and parsing the timestamp columns to set expectations:
-
-```python
-import pandas as pd
-
-df = pd.read_csv('data/Tunisair_flights_dataset.csv', parse_dates=['scheduled_dep', 'actual_dep', 'scheduled_arr', 'actual_arr'])
-df.head()
-```
-
-**Narrative:** At this stage I check for missing timestamps, impossible times, and columns needed for modeling.
+### 3. Predictions Export (flight_delay_with_predictions.csv)
+Output from the ML model for Tableau dashboards.
 
 ---
 
-### 2) Cleaning & sanity checks
-Clip unrealistic delays and add human-friendly time features for modeling:
+## 🧭 Analytical Workflow
+### 1) Initial Load & Timestamp Parsing
+
+```python
+df = pd.read_csv(
+    'data/Tunisair_flights_dataset.csv',
+    parse_dates=['scheduled_dep','actual_dep','scheduled_arr','actual_arr']
+)
+df.head()
+
+```
+
+**This allows detection of missing timestamps, impossible sequences, timezone inconsistencies, etc.** 
+
+---
+
+### 2) Data Cleaning
+Removing extreme or impossible values:
 
 ```python
 df = df[(df['dep_delay'] >= -60) & (df['dep_delay'] <= 1440)]
 df['day_of_week'] = df['scheduled_dep'].dt.day_name()
 ```
 
-**Narrative:** This removes clear data-entry errors and creates features like `day_of_week` that are highly predictive of delay patterns.
+**Why?**
+- Negative delays below –60 mins indicate data entry errors
+- Delays over 24 hours (1440 mins) are operationally invalid
+- Weekday is a strong feature for predicting operational congestion
 
 ---
 
-### 3) Feature engineering — route history
-Capture recent route performance via rolling averages (e.g., last 30 flights on that origin→destination):
+### 3) Feature Engineering (The Secret Sauce)
+ **Rolling route performance (last 30 flights)**
 
 ```python
 df = df.sort_values(['origin','destination','scheduled_dep'])
-df['route_avg_delay_30'] = df.groupby(['origin','destination'])['dep_delay'].transform(lambda x: x.rolling(30, min_periods=1).mean())
+df['route_avg_delay_30'] = df.groupby(
+    ['origin','destination']
+)['dep_delay'].transform(lambda x: x.rolling(30, min_periods=1).mean())
 ```
 
-**Narrative:** Route-level rolling averages are strong short-term predictors: delays often cascade along routes with recent problems.
+Why this matters:
+Delays tend to propagate through routes due to crew cycles, airport congestion, and aircraft availability.
+
+**Additional engineered features:**
+- Hour of day / month / year
+- Busy-hour flag
+- Weekend flag
+- Short-haul vs long-haul route
+- Seasonal traffic patterns
 
 ---
 
 ### 4) Modeling — comparing classifiers
-We trained both Logistic Regression and Random Forest. Random Forest was chosen as the production model.
+Models tested:
+| Model                        | Purpose                | Notes                           |
+| ---------------------------- | ---------------------- | ------------------------------- |
+| **Logistic Regression**      | interpretable baseline | Captures linear patterns        |
+| **Random Forest Classifier** | production model       | Handles non-linear interactions |
+
 
 ```python
 from sklearn.linear_model import LogisticRegression
