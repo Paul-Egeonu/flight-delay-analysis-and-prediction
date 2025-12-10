@@ -38,7 +38,6 @@ tunisair-flight-delay-analysis/
 │   └── flight_delay_visual.twb              
 ```
 
-> **Note:** Replace the placeholder files in `data/`, `models/`, `images/`, and `tableau/` with your actual assets before publishing the repo.
 
 ---
 
