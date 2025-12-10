@@ -9,33 +9,43 @@
 
 ---
 
-## Project Snapshot — a short story
+## 📘 Project Overview — A Short Story
 
-I explored Tunisair's flight logs to understand why flights get delayed and whether we could predict these delays. This case study blends exploratory storytelling with applied machine learning: we clean the data, craft features that capture temporal and route patterns, test models (Logistic Regression and Random Forest), and deploy predictions for visualization (Tableau) and ad-hoc inference (Streamlit).
+Flight delays are disruptive, expensive, and unpredictable. Tunisair provides thousands of flight entries each year — but what patterns explain these delays, and can we predict them?
+This project combines exploratory analysis, feature engineering, machine learning, and interactive reporting to understand why Tunisair flights are delayed and to build a model that predicts those delays before they occur.
 
-Each code snippet below has been chosen to illustrate a key step in the analysis and decision-making process.
-
+You’ll find:
+- Cleaned and enriched flight records
+- Route-level temporal features
+- Machine learning models (Logistic Regression & Random Forest)
+- Exported prediction dataset for BI tools
+- An interactive Streamlit delay predictor
+- A Tableau dashboard showing operational insights
 ---
 
-## Repository 
+## 📂 Repository Structure
 
 ```
 tunisair-flight-delay-analysis/
 │── README.md
 │── requirements.txt
-│── images/Flight_ERD.png
+│── images/
+│   ├── Flight_ERD.png
+│   ├── TunisairDelayPredictor.gif           
+│   └── TableauPublic-flight_delay.gif
+│
 │── data/
 │   ├── Tunisair_flights_dataset.csv        
 │   ├── airports2.csv                        
 │   └── flight_delay_with_predictions.csv    
+│
 │── models/
 │   ├── tunisair_best_model.joblib           
 │   └── tunisair_delay_regressor.joblib     
-│── images/
-│   ├── TunisairDelayPredictor.gif           
-│   └── TableauPublic-flight_delay.gif       
+│
 │── tableau/
-│   └── flight_delay_visual.twb              
+│   └── flight_delay_visual.twb
+            
 ```
 
 
