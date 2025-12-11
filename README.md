@@ -198,6 +198,37 @@ ROC-AUC (RF): 0.7895
 ---
 
 
+
+## 📊 Tableau Dashboard (Included)
+### Interactive BI Dashboard
+File: tableau/flight_delay_visual.twb
+
+Shows:
+- Delay patterns by weekday, month, and hour
+- Worst performing routes
+- Actual vs predicted delays
+- Route-level rolling averages
+- Seasonal delay distribution
+
+**📊 Dashboard GIF Preview:**
+![TableauPublic-flight_delay](https://github.com/user-attachments/assets/6e4f1cd1-1344-4ec3-823a-c5a1e113688a)
+
+---
+
+## 🖥️ Streamlit App — Tunisair Delay Predictor
+Use the trained model to interactively predict delay likelihood for any flight.
+Includes:
+- Origin/destination dropdowns
+- Date/time selection
+- Aircraft/route metadata
+- Real-time model inference
+
+**🎥 Streamlit GIF Preview:**
+![TunisairDelayPredictor](https://github.com/user-attachments/assets/bbbf2d55-3f06-4cae-9548-176ae8d28f40)
+
+
+---
+
 ## 🧠 Key Insights from the Analysis
 ### Operational Findings:
 - Certain origin→destination routes have persistent delay histories
