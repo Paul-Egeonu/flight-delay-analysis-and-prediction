@@ -27,24 +27,25 @@ You’ll find:
 
 ```
 tunisair-flight-delay-analysis/
-│── README.md
-│── requirements.txt
 │── images/
 │   ├── Flight_ERD.png
 │   ├── TunisairDelayPredictor.gif           
 │   └── TableauPublic-flight_delay.gif
-│
 │── data/
 │   ├── Tunisair_flights_dataset.csv        
 │   ├── airports2.csv                        
-│   └── flight_delay_with_predictions.csv    
-│
+│   └── flight_delay_with_predictions.csv  
+│── notebook/
+│   └── flight_analysis.ipynb
+│── app/
+│   └── tunisair_app.py
 │── models/
 │   ├── tunisair_best_model.joblib           
 │   └── tunisair_delay_regressor.joblib     
-│
 │── tableau/
 │   └── flight_delay_visual.twb
+│── README.md
+│── requirements.txt
             
 ```
 
