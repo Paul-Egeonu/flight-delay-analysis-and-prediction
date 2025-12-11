@@ -197,17 +197,29 @@ ROC-AUC (RF): 0.7895
 
 ---
 
-## Operational recommendations
 
-- Monitor chronic-delay origin→destination pairs and allocate reserve crew on those routes.  
-- Use the Streamlit app to run ad-hoc predictions for scheduled flights and inform passengers proactively.  
-- Enrich the data with weather and ATC event features to further improve accuracy.
+## 🧠 Key Insights from the Analysis
+### Operational Findings:
+- Certain origin→destination routes have persistent delay histories
+- Early morning flights tend to depart on time
+- Congestion peaks on Wednesdays and Fridays
+- High route-level rolling averages are strong red flags
+- Significant delays often cascade across subsequent flights
+
+### Business Recommendations:
+1. Deploy reserve crew & aircraft on high-risk routes
+2. Monitor rolling route delays to detect early cascade patterns
+3. Proactive passenger communication for predicted delay flights
+4. Enrich the model with:
+- Weather data
+- ATC event logs
+- Airport-level congestion metrics
 
 ---
 
 ## How to reproduce
 
-1. Clone repo and add real data/models to the `data/` and `models/` folders.  
+1. Clone repo.  
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
