@@ -99,7 +99,7 @@ df['day_of_week'] = df['scheduled_dep'].dt.day_name()
 
 ---
 
-### 3) Feature Engineering (The Secret Sauce)
+### 3) Feature Engineering 
  **Rolling route performance (last 30 flights)**
 
 ```python
@@ -211,6 +211,7 @@ Shows:
 - Seasonal delay distribution
 
 **📊 Dashboard GIF Preview:**
+
 ![TableauPublic-flight_delay](https://github.com/user-attachments/assets/6e4f1cd1-1344-4ec3-823a-c5a1e113688a)
 
 ---
@@ -224,6 +225,7 @@ Includes:
 - Real-time model inference
 
 **🎥 Streamlit GIF Preview:**
+
 ![TunisairDelayPredictor](https://github.com/user-attachments/assets/bbbf2d55-3f06-4cae-9548-176ae8d28f40)
 
 
