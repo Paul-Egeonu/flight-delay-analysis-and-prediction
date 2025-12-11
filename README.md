@@ -140,7 +140,7 @@ lr.fit(X_train, y_train)
 rf.fit(X_train, y_train)
 ```
 
-**Narrative:** Logistic Regression is an interpretable baseline. Random Forest captures non-linear interactions between schedule, route, and aircraft features.
+**Logistic Regression is an interpretable baseline. Random Forest captures non-linear interactions between schedule, route, and aircraft features.**
 
 ---
 
@@ -155,27 +155,18 @@ print(classification_report(y_test, y_pred))
 print("ROC-AUC (RF):", roc_auc_score(y_test, rf.predict_proba(X_test)[:,1]))
 ```
 
-**Narrative:** Use ROC-AUC together with class-level metrics to balance operational trade-offs: false positives (unnecessary alerts) vs false negatives (missed delays).
+**Use ROC-AUC together with class-level metrics to balance operational trade-offs: false positives (unnecessary alerts) vs false negatives (missed delays).**
 
 ---
 
-### 6) Exporting predictions for Tableau
-After generating predictions, export the enriched dataset for Tableau:
 
-```python
-df[['flight_id','scheduled_dep','origin','destination','predicted_dep_delay']].to_csv('data/flight_delay_with_predictions.csv', index=False)
-```
 
-**Narrative:** The export acts as a single source-of-truth for interactive dashboards and operational reporting.
-
----
-
-## Model results (summary)
+## Model Results (summary)
 
 - **Models tested:** Logistic Regression, Random Forest  
 - **Best model:** Random Forest (ROC-AUC ≈ 0.7895)
 
-**Logistic Regression — classification snapshot**
+**Logistic Regression**
 ```
 precision    recall  f1-score   support
 0       0.75      0.67      0.71     14376
@@ -184,7 +175,7 @@ accuracy                           0.70     26959
 ROC-AUC (LR): 0.7822
 ```
 
-**Random Forest — classification snapshot**
+**Random Forest**
 ```
 precision    recall  f1-score   support
 0       0.73      0.72      0.72     14376
@@ -193,11 +184,20 @@ accuracy                           0.71     26959
 ROC-AUC (RF): 0.7895
 ```
 
-**Interpretation:** Random Forest offered a modest but meaningful improvement in ROC-AUC and balanced precision/recall across classes, so it was saved as `tunisair_best_model.joblib`.
-
+**🔍Interpretation:** Random Forest offered a modest but meaningful improvement in ROC-AUC and balanced precision/recall across classes, so it was chosen as production model saved as `tunisair_best_model.joblib`.
+ 
 ---
 
+### Exporting predictions for Tableau
+After generating predictions, export the enriched dataset for Tableau:
 
+```python
+df[['flight_id','scheduled_dep','origin','destination','predicted_dep_delay']].to_csv('data/flight_delay_with_predictions.csv', index=False)
+```
+
+**The exported dataset acts as a single source-of-truth for interactive dashboards and operational reporting & powers the Tableau dashboards (below).**
+
+---
 
 ## 📊 Tableau Dashboard (Included)
 ### Interactive BI Dashboard
