@@ -12,8 +12,7 @@
 
 ---
 
-## 📘 Project Overview — A Short Story
-
+## 📘 Project Overview 
 Flight delays are disruptive, expensive, and unpredictable. Tunisair provides thousands of flight entries each year — but what patterns explain these delays, and can we predict them?
 This project combines exploratory analysis, feature engineering, machine learning, and interactive reporting to understand why Tunisair flights are delayed and to build a model that predicts those delays before they occur.
 
