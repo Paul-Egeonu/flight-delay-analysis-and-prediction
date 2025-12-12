@@ -203,7 +203,7 @@ df[['flight_id','scheduled_dep','origin','destination','predicted_dep_delay']].t
 
 ---
 
-## 📊 Tableau Dashboard (Included)
+## 📊 Tableau Dashboard 
 ### Interactive BI Dashboard
 File: tableau/flight_delay_visual.twb
 
