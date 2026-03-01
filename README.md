@@ -292,4 +292,3 @@ plotly
 
 **Paul Egeonu**  
 _Data Analyst | Data Scientist_  
-[LinkedIn](https://www.linkedin.com/in/paul-egeonu) | [GitHub](https://github.com/Paul-Egeonu)
